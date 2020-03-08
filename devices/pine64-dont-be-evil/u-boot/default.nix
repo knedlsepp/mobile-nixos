@@ -32,11 +32,6 @@ in
     extraMeta.platforms = ["aarch64-linux"];
     BL31 = "${armTrustedFirmwareAllwinner}/bl31.bin";
 
-    extraPatches = [
-      ./0001-image-android-Adds-support-for-FDT-in-the-qcom-forma.patch
-      ./0002-Loads-FDT-from-qualcomm-specific-format-of-android-b.patch
-    ];
-
     filesToInstall = ["u-boot-sunxi-with-spl.bin" "u-boot.img" "u-boot.dtb"];
 
     extraConfig = ''
@@ -68,17 +63,5 @@ in
       # This is because we re-invest the 2s in our own menu.
       CONFIG_AUTOBOOT_KEYED_CTRLC=y
       CONFIG_BOOTDELAY=0
-    '';
-  }).overrideAttrs(old: rec {
-    version = "2019.10";
-    src = fetchFromGitLab {
-      domain = "gitlab.denx.de";
-      owner = "u-boot";
-      repo = "u-boot";
-      sha256 = "0fj1dgg6nlxkxhjl1ir0ksq6mbkjj962biv50p6zh71mhbi304in";
-      rev = "v${version}";
-    };
-    postInstall = ''
-      cp .config $out/build.config
     '';
   })
