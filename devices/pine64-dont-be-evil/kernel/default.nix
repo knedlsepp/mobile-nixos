@@ -16,7 +16,7 @@
   };
   patches = [
     (fetchpatch {
-      url = "https://gitlab.com/postmarketOS/pmaports/raw/master/main/linux-postmarketos-allwinner/touch-dts.patch";
+      url = "https://gitlab.com/postmarketOS/pmaports/-/raw/605fbe7587071b9d322970a5b32f05ef6fea8bb5/main/linux-postmarketos-allwinner/touch-dts.patch";
       sha256 = "1vbmyvlmfxxgvsf6si28r7pvh1xclsx19n7616xz03c9c5bz2p4f";
     })
   ];
